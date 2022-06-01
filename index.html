@@ -5,8 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drinkers United</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 <body>
-    
+    <div class="container">
+        <!--Row for searching a city-->
+        <div class="columns">
+            <div class="box column is-half">
+                <!--Here we create an HTML form for handling the inputs-->
+                <h4 class="pt-1"><strong>Brewery:</strong></h4>
+                 
+                  <div class="select is-primary">
+                    <select id="mySelectBox">
+                      <option id="State">by_state</option>
+                      <option id="City">by_city</option>
+                      <option id="Postal">by_postal</option>
+                    </select>
+                  </div>
+                 <br></br>
+                  <input class="input is-focused is-primary is-normal column is-half mt-8" type="text" placeholder="Type a place" id="Search-place">
+                  <br>
+                  <button class="button is-link" id="Search-Brewery">
+                        Search
+                      </button>
+                      <button class="button is-warning" id="Random-Brewery">
+                        Random
+                      </button>
+                    </br>
+                <p><span class="none" id="brewery-address"></span></p> 
+            </div>   
+            <div class="box column is-half">
+                <h4 class="pt-1"><strong>Cocktail:</strong></h4>
+
+                <input class="input is-focused is-primary is-normal column is-half mt-8" type="text" placeholder="Search Cocktail">
+
+                <br>
+                <button class="button is-link" id="Search-Cocktail">
+                      Search
+                    </button>
+                    <button class="button is-warning" id="Random-Cocktail">
+                      Random
+                    </button>
+                  </br>
+            </br>
+
+                
+            </div>
+        </div>
+    </div>
+
+
+
+       <!--jQuery JS-->
+       <script src="https://code.jquery.com/jquery.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+       <script src="script.js"></script>
 </body>
 </html>
