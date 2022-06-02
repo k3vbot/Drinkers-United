@@ -7,12 +7,16 @@
     <title>Drinkers United</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 </head>
 <body>
+  <nav class="navbar">
+      <div class="navbar-item">Drinkers United</div>
+  </nav>
     <div class="container">
         <!--Row for searching a city-->
         <div class="columns">
-            <div class="box column is-half">
+            <div class="box column is-half" id="firstBox">
                 <!--Here we create an HTML form for handling the inputs-->
                 <h4 class="pt-1"><strong>Brewery:</strong></h4>
                  
@@ -35,7 +39,7 @@
                     </br>
                 <p><span class="none" id="brewery-address"></span></p> 
             </div>   
-            <div class="box column is-half">
+            <div class="box column is-half" id="secondBox">
                 <h4 class="pt-1"><strong>Cocktail:</strong></h4>
 
                 <input class="input is-focused is-primary is-normal column is-half mt-8" type="text" placeholder="Search Cocktail">
