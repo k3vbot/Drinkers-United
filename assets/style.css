@@ -1,0 +1,25 @@
+.columns {
+    margin-top: 50px;
+    gap: 50px;
+}
+
+#firstBox {
+    margin: 0;
+    box-shadow: 0px 0px 10px;
+}
+
+#secondBox {
+    box-shadow: 0px 0px 10px;
+}
+
+.navbar {
+    background-image: linear-gradient(to left top, rgb(200, 196, 81), rgb(104, 178, 235));
+
+}
+
+.navbar-item {
+    font-size: 100px;
+    color: blue;
+    font-family: lobster;
+    text-shadow: 2px 2px 5px yellow;
+}
