@@ -23,3 +23,9 @@
     font-family: lobster;
     text-shadow: 2px 2px 5px yellow;
 }
+
+img {
+    border-radius:8px;
+    width: 300px;
+    height: 300px;
+  }

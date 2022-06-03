@@ -6,7 +6,7 @@ let search_cocktailplace = $("#Search-cocktailplace");
 let searchBrew = $("#Search-Brewery");
 let searchCocktail = $("#Search-Cocktail");
 let RandomBrew = $("#Random-Brewery");
-let RandomCocktail = $("#Random-Cocktail");
+let randomCocktail = $("#Random-Cocktail");
 
 
 
@@ -138,27 +138,29 @@ function currentcocktail(cocktail){
             let measure15 = response.drinks[i].strMeasure15;
 
 
-           let object1 = {ingredient: ingredient1, measure: measure1 }
-           let object2 = {ingredient: ingredient2, measure: measure2 }
-           let object3 = {ingredient: ingredient3, measure: measure3 }
-           let object4 = {ingredient: ingredient4, measure: measure4 }
-           let object5 = {ingredient: ingredient5, measure: measure5 }
-           let object6 = {ingredient: ingredient6, measure: measure6 }
-           let object7 = {ingredient: ingredient7, measure: measure7 }
-           let object8 = {ingredient: ingredient8, measure: measure8 }
-           let object9 = {ingredient: ingredient9, measure: measure9 }
-           let object10 = {ingredient: ingredient10, measure: measure10 }
-           let object11 = {ingredient: ingredient11, measure: measure11 }
-           let object12 = {ingredient: ingredient12, measure: measure12 }
-           let object13 = {ingredient: ingredient13, measure: measure13 }
-           let object14 = {ingredient: ingredient14, measure: measure14 }
-           let object15 = {ingredient: ingredient15, measure: measure15 }
+           let object1 = {ingredient: ingredient1, measure: measure1 };
+           let object2 = {ingredient: ingredient2, measure: measure2 };
+           let object3 = {ingredient: ingredient3, measure: measure3 };
+           let object4 = {ingredient: ingredient4, measure: measure4 };
+           let object5 = {ingredient: ingredient5, measure: measure5 };
+           let object6 = {ingredient: ingredient6, measure: measure6 };
+           let object7 = {ingredient: ingredient7, measure: measure7 };
+           let object8 = {ingredient: ingredient8, measure: measure8 };
+           let object9 = {ingredient: ingredient9, measure: measure9 };
+           let object10 = {ingredient: ingredient10, measure: measure10 };
+           let object11 = {ingredient: ingredient11, measure: measure11 };
+           let object12 = {ingredient: ingredient12, measure: measure12 };
+           let object13 = {ingredient: ingredient13, measure: measure13 };
+           let object14 = {ingredient: ingredient14, measure: measure14 };
+           let object15 = {ingredient: ingredient15, measure: measure15 };
 
           let cocktail_array = [object1,object2,object3,object4,object5,object6,object7,
             object8,object9,object10,object11,object12,object13,object14,object15];
           
+            let imgurl = response.drinks[i].strDrinkThumb;
             console.log (cocktail_array);
      $("#cocktail-address").append('<ul> Name: ' + drink + '</ul>');
+     $("#cocktail-address").append('<ul><img src=' + imgurl +'></ul>');
 
   for (let i=0; i< cocktail_array.length; i++)
   {
@@ -179,9 +181,102 @@ function currentcocktail(cocktail){
 };
 
 
+function randomcocktail(){
+    console.log(search_cocktailplace);
+    $(".cocktail_text").empty();
+    // Here we build the URL so we can get a data from server side.
+    let queryURL= "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+    $.ajax({
+        url:queryURL,
+        method:"GET",
+    }).then(function(response){
+        console.log(response);
+       // console.log(response[0].strInstructions);
+
+
+            let instructions= response.drinks[0].strInstructions;
+            let drink= response.drinks[0].strDrink;
+            let ingredient1 = response.drinks[0].strIngredient1
+            let ingredient2 = response.drinks[0].strIngredient2
+            let ingredient3 = response.drinks[0].strIngredient3
+            let ingredient4 = response.drinks[0].strIngredient4
+            let ingredient5 = response.drinks[0].strIngredient5
+            let ingredient6 = response.drinks[0].strIngredient6
+            let ingredient7 = response.drinks[0].strIngredient7
+            let ingredient8 = response.drinks[0].strIngredient8
+            let ingredient9 = response.drinks[0].strIngredient9
+            let ingredient10 = response.drinks[0].strIngredient10
+            let ingredient11 = response.drinks[0].strIngredient11
+            let ingredient12 = response.drinks[0].strIngredient12
+            let ingredient13 = response.drinks[0].strIngredient13
+            let ingredient14 = response.drinks[0].strIngredient14
+            let ingredient15 = response.drinks[0].strIngredient15
+          //  let ingredientarray = [Ingredient1 ,Ingredient2,Ingredient3,Ingredient4,Ingredient5,Ingredient6,
+           //     Ingredient7,Ingredient8,Ingredient9,Ingredient10,Ingredient11,Ingredient12,Ingredient13,
+        //   Ingredient14, Ingredient15];
+            let measure1 = response.drinks[0].strMeasure1;
+            let measure2 = response.drinks[0].strMeasure2;
+            let measure3 = response.drinks[0].strMeasure3;
+            let measure4 = response.drinks[0].strMeasure4;
+            let measure5 = response.drinks[0].strMeasure5;
+            let measure6 = response.drinks[0].strMeasure6;
+            let measure7 = response.drinks[0].strMeasure7;
+            let measure8 = response.drinks[0].strMeasure8;
+            let measure9 = response.drinks[0].strMeasure9;
+            let measure10 = response.drinks[0].strMeasure10;
+            let measure11 = response.drinks[0].strMeasure11;
+            let measure12 = response.drinks[0].strMeasure12;
+            let measure13 = response.drinks[0].strMeasure13;
+            let measure14 = response.drinks[0].strMeasure14;
+            let measure15 = response.drinks[0].strMeasure15;
+
+
+           let object1 = {ingredient: ingredient1, measure: measure1 };
+           let object2 = {ingredient: ingredient2, measure: measure2 };
+           let object3 = {ingredient: ingredient3, measure: measure3 };
+           let object4 = {ingredient: ingredient4, measure: measure4 };
+           let object5 = {ingredient: ingredient5, measure: measure5 };
+           let object6 = {ingredient: ingredient6, measure: measure6 };
+           let object7 = {ingredient: ingredient7, measure: measure7 };
+           let object8 = {ingredient: ingredient8, measure: measure8 };
+           let object9 = {ingredient: ingredient9, measure: measure9 };
+           let object10 = {ingredient: ingredient10, measure: measure10 };
+           let object11 = {ingredient: ingredient11, measure: measure11 };
+           let object12 = {ingredient: ingredient12, measure: measure12 };
+           let object13 = {ingredient: ingredient13, measure: measure13 };
+           let object14 = {ingredient: ingredient14, measure: measure14 };
+           let object15 = {ingredient: ingredient15, measure: measure15 };
+
+          let cocktail_array = [object1,object2,object3,object4,object5,object6,object7,
+            object8,object9,object10,object11,object12,object13,object14,object15];
+          
+            let imgurl = response.drinks[0].strDrinkThumb;
+            console.log (cocktail_array);
+     $("#cocktail-address").append('<ul> Name: ' + drink + '</ul>');
+     $("#cocktail-address").append('<ul><img src=' + imgurl +'></ul>');
+
+  for (let i=0; i< cocktail_array.length; i++)
+  {
+      if(cocktail_array[i].ingredient && cocktail_array[i].measure){
+            $("#cocktail-address").append('<ul>' + cocktail_array[i].ingredient + '  ' + cocktail_array[i].measure + '</ul>');
+        }
+        else if (cocktail_array[i].ingredient && cocktail_array[i].measure == null)
+        {            $("#cocktail-address").append('<ul>' + cocktail_array[i].ingredient +  '</ul>');
+    }
+        }
+            $("#cocktail-address").append('<ul> Instruction: ' + instructions + '</ul><br />');
+
+        });
+
+};
+
+
+
+
 
 
 searchBrew.on("click",currentbrewery);
 RandomBrew.on("click",randombrewery);
 searchCocktail.on("click",currentcocktail);
+randomCocktail.on("click",randomcocktail);
 
