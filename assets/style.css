@@ -7,7 +7,7 @@ body {
     width: 100%;
     background: fixed #000 url(./images/backgroundwood.jpg);
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
 }
 
 .columns {
