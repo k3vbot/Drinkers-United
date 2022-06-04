@@ -10,6 +10,7 @@ let randomCocktail = $("#Random-Cocktail");
 
 
 
+
 console.log(searchplace);
 
 function currentbrewery(place){
@@ -19,7 +20,8 @@ function currentbrewery(place){
         place=searchplace.val().trim();
     let filter = $('#mySelectBox option').filter(':selected').text();
     let queryURL= "https://api.openbrewerydb.org/breweries?" +filter + "=" + place + "&per_page=5";
-
+    // localStorage.setItem("currentbrewery",place); // set value to local storage
+   
     // let queryURL= "https://api.openbrewerydb.org/breweries?by_state=" + place + "&per_page=5";
     $.ajax({
         url:queryURL,
@@ -35,13 +37,12 @@ if (response.length){
             let postal_code= response[i].postal_code;
             let country=response[i].country;
 
-
             $("#brewery-address").append('<ul>' + name + '</ul>');
             $("#brewery-address").append('<ul>' + street + '</ul>');
             $("#brewery-address").append('<ul>' + city + '</ul>');
             $("#brewery-address").append('<ul>' + state + '</ul>');
             $("#brewery-address").append('<ul>' + postal_code + '</ul>');
-            $("#brewery-address").append('<ul>' + country + '</ul><br />');
+            $("#brewery-address").append('<ul>' + country + '</ul><hr>');
 
         }
     }
@@ -50,6 +51,8 @@ if (response.length){
     });
 };
 };
+
+
 
 
 function randombrewery(){
@@ -71,7 +74,6 @@ function randombrewery(){
             let postal_code= response[0].postal_code;
             let country=response[0].country;
 
-
             $("#brewery-address").append('<ul>' + name + '</ul>');
             $("#brewery-address").append('<ul>' + street + '</ul>');
             $("#brewery-address").append('<ul>' + city + '</ul>');
@@ -92,6 +94,8 @@ function currentcocktail(cocktail){
     if(search_cocktailplace.val().trim()!==""){
       cocktail=search_cocktailplace.val().trim();
     let queryURL= "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + cocktail;
+    // localStorage.setItem('currentcocktail',cocktail); // set value to local storage
+    
     $.ajax({
         url:queryURL,
         method:"GET",
@@ -171,7 +175,7 @@ function currentcocktail(cocktail){
         {            $("#cocktail-address").append('<ul>' + cocktail_array[i].ingredient +  '</ul>');
     }
         }
-            $("#cocktail-address").append('<ul> Instruction: ' + instructions + '</ul><br />');
+            $("#cocktail-address").append('<ul> Instruction: ' + instructions + '</ul><hr>');
 
         }
 
@@ -271,12 +275,50 @@ function randomcocktail(){
 };
 
 
+// Declare variables for button save and clear user data
+let favoriteCocktail = $("#favorite-cocktail")
+let favoriteBrewery = $("#favorite-brewery")
+let clearBrewery = $("#clear-brewery")
+let clearCocktail = $("#clear-cocktail")
 
+// check if the local storage is emty or has data
+var brewArray = JSON.parse(localStorage.getItem("currentbrewery")) || [];
+var cocktailArray = JSON.parse(localStorage.getItem("currentcocktail")) || [];
 
+// functions to save input data into user storage
+function saveBrewery() {
+    if(searchplace.val().trim()!==""){
+        place=searchplace.val().trim();
+        brewArray.push(place);
+    localStorage.setItem("currentbrewery",JSON.stringify(brewArray));
+    }
+}
+function saveCocktail(){
+     if(search_cocktailplace.val().trim()!==""){
+      cocktail=search_cocktailplace.val().trim();
+      cocktailArray.push(cocktail);
+    localStorage.setItem('currentcocktail',JSON.stringify(cocktailArray)); 
+    }
+}
 
+// functions to clear user storage if searchplace is empty
+function clearBrew() {
+    if(searchplace.val().trim()==="") {
+        localStorage.clear();
+    }
+}
+function clearCock() {
+    if(searchplace.val().trim()==="") {
+        localStorage.clear();
+    }
+}
 
+// all the button event to call for it's functions
 searchBrew.on("click",currentbrewery);
 RandomBrew.on("click",randombrewery);
 searchCocktail.on("click",currentcocktail);
 randomCocktail.on("click",randomcocktail);
-
+favoriteBrewery.on("click",saveBrewery); 
+favoriteCocktail.on("click",saveCocktail);
+clearBrewery.on("click",clearBrew)
+clearCocktail.on("click",clearCock)
