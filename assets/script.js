@@ -278,8 +278,8 @@ function randomcocktail(){
 
 
 // Declare variables for button save and clear user data
-let favouriteCocktail = $("#favourite-cocktail")
-let favouriteBrewery = $("#favourite-brewery")
+let favoriteCocktail = $("#favorite-cocktail")
+let favoriteBrewery = $("#favorite-brewery")
 let clearBrewery = $("#clear-brewery")
 let clearCocktail = $("#clear-cocktail")
 
@@ -320,7 +320,7 @@ searchBrew.on("click",currentbrewery);
 RandomBrew.on("click",randombrewery);
 searchCocktail.on("click",currentcocktail);
 randomCocktail.on("click",randomcocktail);
-favouriteBrewery.on("click",saveBrewery); 
-favouriteCocktail.on("click",saveCocktail);
+favoriteBrewery.on("click",saveBrewery); 
+favoriteCocktail.on("click",saveCocktail);
 clearBrewery.on("click",clearBrew)
 clearCocktail.on("click",clearCock)
