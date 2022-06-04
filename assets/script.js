@@ -35,13 +35,12 @@ if (response.length){
             let postal_code= response[i].postal_code;
             let country=response[i].country;
 
-
             $("#brewery-address").append('<ul>' + name + '</ul>');
             $("#brewery-address").append('<ul>' + street + '</ul>');
             $("#brewery-address").append('<ul>' + city + '</ul>');
             $("#brewery-address").append('<ul>' + state + '</ul>');
             $("#brewery-address").append('<ul>' + postal_code + '</ul>');
-            $("#brewery-address").append('<ul>' + country + '</ul><br />');
+            $("#brewery-address").append('<ul>' + country + '</ul><hr>');
 
         }
     }
@@ -70,7 +69,6 @@ function randombrewery(){
             let state= response[0].state;
             let postal_code= response[0].postal_code;
             let country=response[0].country;
-
 
             $("#brewery-address").append('<ul>' + name + '</ul>');
             $("#brewery-address").append('<ul>' + street + '</ul>');
@@ -171,7 +169,7 @@ function currentcocktail(cocktail){
         {            $("#cocktail-address").append('<ul>' + cocktail_array[i].ingredient +  '</ul>');
     }
         }
-            $("#cocktail-address").append('<ul> Instruction: ' + instructions + '</ul><br />');
+            $("#cocktail-address").append('<ul> Instruction: ' + instructions + '</ul><hr>');
 
         }
 
