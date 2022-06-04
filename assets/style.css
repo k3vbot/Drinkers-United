@@ -21,6 +21,7 @@
     background-image: linear-gradient(to left top, rgb(200, 196, 81), rgb(104, 178, 235));
     justify-content: center;
 
+
 }
 
 .navbar-item {
@@ -36,3 +37,6 @@ img {
     height: 300px;
   }
 
+  .button {
+      padding: 20px;
+  }
