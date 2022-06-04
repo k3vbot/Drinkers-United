@@ -39,7 +39,7 @@ if (response.length){
             let postal_code= response[i].postal_code;
             let country=response[i].country;
 
-            $("#brewery-address").append('<input type="checkbox" id="brewname"><ul>' + name + '</ul>');
+            $("#brewery-address").append('<ul>' + name + '</ul>');
             $("#brewery-address").append('<ul>' + street + '</ul>');
             $("#brewery-address").append('<ul>' + city + '</ul>');
             $("#brewery-address").append('<ul>' + state + '</ul>');
