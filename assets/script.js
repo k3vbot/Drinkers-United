@@ -10,6 +10,7 @@ let randomCocktail = $("#Random-Cocktail");
 
 
 
+
 console.log(searchplace);
 
 function currentbrewery(place){
@@ -19,7 +20,8 @@ function currentbrewery(place){
         place=searchplace.val().trim();
     let filter = $('#mySelectBox option').filter(':selected').text();
     let queryURL= "https://api.openbrewerydb.org/breweries?" +filter + "=" + place + "&per_page=5";
-
+    // localStorage.setItem("currentbrewery",place); // set value to local storage
+   
     // let queryURL= "https://api.openbrewerydb.org/breweries?by_state=" + place + "&per_page=5";
     $.ajax({
         url:queryURL,
@@ -50,6 +52,8 @@ if (response.length){
     });
 };
 };
+
+
 
 
 function randombrewery(){
@@ -92,6 +96,8 @@ function currentcocktail(cocktail){
     if(search_cocktailplace.val().trim()!==""){
       cocktail=search_cocktailplace.val().trim();
     let queryURL= "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + cocktail;
+    // localStorage.setItem('currentcocktail',cocktail); // set value to local storage
+    
     $.ajax({
         url:queryURL,
         method:"GET",
@@ -271,12 +277,50 @@ function randomcocktail(){
 };
 
 
+// Declare variables for button save and clear user data
+let favouriteCocktail = $("#favourite-cocktail")
+let favouriteBrewery = $("#favourite-brewery")
+let clearBrewery = $("#clear-brewery")
+let clearCocktail = $("#clear-cocktail")
 
+// check if the local storage is emty or has data
+var brewArray = JSON.parse(localStorage.getItem("currentbrewery")) || [];
+var cocktailArray = JSON.parse(localStorage.getItem("currentcocktail")) || [];
 
+// functions to save input data into user storage
+function saveBrewery() {
+    if(searchplace.val().trim()!==""){
+        place=searchplace.val().trim();
+        brewArray.push(place);
+    localStorage.setItem("currentbrewery",JSON.stringify(brewArray));
+    }
+}
+function saveCocktail(){
+     if(search_cocktailplace.val().trim()!==""){
+      cocktail=search_cocktailplace.val().trim();
+      cocktailArray.push(cocktail);
+    localStorage.setItem('currentcocktail',JSON.stringify(cocktailArray)); 
+    }
+}
 
+// functions to clear user storage if searchplace is empty
+function clearBrew() {
+    if(searchplace.val().trim()==="") {
+        localStorage.clear();
+    }
+}
+function clearCock() {
+    if(searchplace.val().trim()==="") {
+        localStorage.clear();
+    }
+}
 
+// all the button event to call for it's functions
 searchBrew.on("click",currentbrewery);
 RandomBrew.on("click",randombrewery);
 searchCocktail.on("click",currentcocktail);
 randomCocktail.on("click",randomcocktail);
-
+favouriteBrewery.on("click",saveBrewery); 
+favouriteCocktail.on("click",saveCocktail);
+clearBrewery.on("click",clearBrew)
+clearCocktail.on("click",clearCock)
