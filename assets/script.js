@@ -5,7 +5,7 @@ let cocktail = "";
 let search_cocktailplace = $("#Search-cocktailplace");
 let searchBrew = $("#Search-Brewery");
 let searchCocktail = $("#Search-Cocktail");
-let RandomBrew = $("#Random-Brewery");
+let randomBrew = $("#Random-Brewery");
 let randomCocktail = $("#Random-Cocktail");
 
 
@@ -18,8 +18,7 @@ function currentbrewery(place){
     // Here we build the URL so we can get a data from server side.
     if(searchplace.val().trim()!==""){
         place=searchplace.val().trim();
-    let filter = $('#mySelectBox option').filter(':selected').text();
-    let queryURL= "https://api.openbrewerydb.org/breweries?" +filter + "=" + place + "&per_page=5";
+    let queryURL= "https://api.openbrewerydb.org/breweries?by_city" + "=" + place + "&per_page=5";
     // localStorage.setItem("currentbrewery",place); // set value to local storage
    
     // let queryURL= "https://api.openbrewerydb.org/breweries?by_state=" + place + "&per_page=5";
@@ -315,7 +314,7 @@ function clearCock() {
 
 // all the button event to call for it's functions
 searchBrew.on("click",currentbrewery);
-RandomBrew.on("click",randombrewery);
+randomBrew.on("click",randombrewery);
 searchCocktail.on("click",currentcocktail);
 randomCocktail.on("click",randomcocktail);
 favoriteBrewery.on("click",saveBrewery); 
