@@ -1,3 +1,15 @@
+html {
+    background: none;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background: fixed #000 url(./images/backgroundwood.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
 .columns {
     margin-top: 50px;
     gap: 50px;
@@ -36,3 +48,6 @@ img {
     height: 300px;
   }
 
+hr {
+    background-color: black;
+}
