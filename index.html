@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,76 +10,86 @@
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <header class="navbar">
-    <div id="modal-js-example" class="modal">
-        <div class="modal-background"></div>
-      
-        <div class="modal-content">
-          <div class="box">
-            <p>Modal JS example</p>
-            <!-- Your content -->
-          </div>
+    <header class="navbar">
+        <div id="modal-js-example" class="modal">
+            <div class="modal-background"></div>
+
+            <div class="modal-content">
+                <div class="box">
+                    <p>Drinkers United is powered by:
+                    </p>
+                    <ul>
+                        <li>OpenBreweryDB</li>
+                        <li>TheCocktailDB</li>
+                        <li>Bulma.io</li>
+                        <li>FontAwesome</li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <button class="modal-close is-large" aria-label="close"></button>
         </div>
-      
-        <button class="modal-close is-large" aria-label="close"></button>
-      </div>
-      <button class="js-modal-trigger" data-target="modal-js-example">
-        Open JS example modal
-      </button>
-      <div class="navbar-item">Drinkers United</div>
-  </header>
+        <button class="button is-danger js-modal-trigger is-small" data-target="modal-js-example">
+            About
+        </button>
+        <div class="navbar-item">Drinkers United</div>
+    </header>
     <div class="container">
         <!--Row for searching a city-->
         <div class="columns">
             <div class="box column is-half" id="firstBox">
                 <!--Here we create an HTML form for handling the inputs-->
                 <h4 class="pt-1"><strong>Brewery:</strong></h4>
-                 
-                  <div class="is-primary">
+
+                <div class="is-primary">
                     </select>
-                  </div>
-                 <br></br>
-                  <input class="input is-focused is-primary is-normal column is-half mt-8" type="text" placeholder="Search for a City" id="Search-place">
-                  <br>
-                  <button class="button is-link" id="Search-Brewery">
-                        Search
-                      </button>
-                      <button class="button is-warning" id="Random-Brewery">
-                        Random
-                      </button>
-                      <button class="button is-success" id="favorite-brewery">
-                        Favorite
-                      </button>
-                      <button class="button is-danger" id="clear-brewery">
-                        Clear Favorite
-                      </button>
-                    </br>
-                <p><span class="none" id="brewery-address"></span></p> 
-                
-            </div>   
+                </div>
+                <br></br>
+                <input class="input is-focused is-primary is-normal column is-half mt-8" type="text"
+                    placeholder="Search for a City" id="Search-place">
+                <br>
+                <button class="button is-link" id="Search-Brewery">
+                    Search
+                </button>
+                <button class="button is-warning" id="Random-Brewery">
+                    Random
+                </button>
+                <button class="button is-success" id="favorite-brewery">
+                    Favorite
+                </button>
+                <button class="button is-danger" id="clear-brewery">
+                    Clear Favorite
+                </button>
+                </br>
+                <p><span class="none" id="brewery-address"></span></p>
+
+            </div>
             <div class="box column is-half" id="secondBox">
                 <h4 class="pt-1"><strong>Cocktail:</strong></h4>
 
-                <input class="input is-focused is-primary is-normal column is-half mt-8" type="text" placeholder="Search for a Cocktail" id="Search-cocktailplace">
+                <input class="input is-focused is-primary is-normal column is-half mt-8" type="text"
+                    placeholder="Search for a Cocktail" id="Search-cocktailplace">
 
                 <br>
                 <button class="button is-link" id="Search-Cocktail">
-                      Search
-                    </button>
-                    <button class="button is-warning" id="Random-Cocktail">
-                      Random
-                    </button>
-                    <button class="button is-success" id="favorite-cocktail">
-                      Favorite
-                    </button>
-                    <button class="button is-danger" id="clear-cocktail">
-                      Clear Favorite
-                    </button>
-                  </br>
-            </br>
+                    Search
+                </button>
+                <button class="button is-warning" id="Random-Cocktail">
+                    Random
+                </button>
+                <button class="button is-success" id="favorite-cocktail">
+                    Favorite
+                </button>
+                <button class="button is-danger" id="clear-cocktail">
+                    Clear Favorite
+                </button>
+                </br>
+                </br>
 
-            <p><span class="cocktail_text" id="cocktail-address"></span></p> 
+                <p><span class="cocktail_text" id="cocktail-address"></span></p>
 
             </div>
         </div>
@@ -86,11 +97,11 @@
 
 
 
-       <!--jQuery JS-->
-       <script src="https://code.jquery.com/jquery.js"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-       <script src="assets/script.js"></script>
-       <script src="assets/modal.js"></script>
+    <!--jQuery JS-->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/script.js"></script>
+    <script src="assets/modal.js"></script>
 </body>
-</html>
 
+</html>
