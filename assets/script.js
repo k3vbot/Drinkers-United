@@ -28,6 +28,8 @@ function currentbrewery(place){
         method:"GET",
     }).then(function(response){
         console.log(response);
+        let allbrewlist=[];
+
 if (response.length){
         for (let i=0;i<5;i++){
             let name= response[i].name;
@@ -37,14 +39,32 @@ if (response.length){
             let postal_code= response[i].postal_code;
             let country=response[i].country;
 
-            $("#brewery-address").append('<ul>' + name + '</ul>');
+            $("#brewery-address").append('<input type="checkbox" id="brewname"><ul>' + name + '</ul>');
             $("#brewery-address").append('<ul>' + street + '</ul>');
             $("#brewery-address").append('<ul>' + city + '</ul>');
             $("#brewery-address").append('<ul>' + state + '</ul>');
             $("#brewery-address").append('<ul>' + postal_code + '</ul>');
             $("#brewery-address").append('<ul>' + country + '</ul><hr>');
 
+            const brewlist ={
+                brewname:name,
+                brewnamestreet: street,
+                brewcity:city,
+                brewstate:state,
+                brewpostal_code:postal_code,
+                brewcountry:country
+            }
+
+            allbrewlist[i]=brewlist;
+           console.log(allbrewlist);
+
+           localStorage.setItem("brewlist", JSON.stringify(allbrewlist))
+
         }
+
+
+
+
     }
     else
 { $("#brewery-address").append('<ul> cannot find this brewery in this place </ul>');}
@@ -67,6 +87,7 @@ function randombrewery(){
         cache: false
     }).then(function(response){
         console.log(response);
+        randomlist=[];
             let name= response[0].name;
             let street= response[0].street;
             let city=response[0].city;
@@ -80,6 +101,21 @@ function randombrewery(){
             $("#brewery-address").append('<ul>' + state + '</ul>');
             $("#brewery-address").append('<ul>' + postal_code + '</ul>');
             $("#brewery-address").append('<ul>' + country + '</ul><br />');
+
+
+            const randombrewlist ={
+                brewname:name,
+                brewnamestreet: street,
+                brewcity:city,
+                brewstate:state,
+                brewpostal_code:postal_code,
+                brewcountry:country
+            }
+
+            randomlist[0]=randombrewlist;
+           console.log(randomlist);
+
+           localStorage.setItem("randomlist", JSON.stringify(randomlist))
 
 
         });
@@ -103,7 +139,7 @@ function currentcocktail(cocktail){
         console.log(response);
        // console.log(response[0].strInstructions);
 
-
+      let  allcocktail_list=[];
         for (let i=0;i<response.drinks.length;i++){
             let instructions= response.drinks[i].strInstructions;
             let drink= response.drinks[i].strDrink;
@@ -177,6 +213,18 @@ function currentcocktail(cocktail){
         }
             $("#cocktail-address").append('<ul> Instruction: ' + instructions + '</ul><hr>');
 
+            const cocktail_list ={
+                cocktailname:drink,
+                coctail_img: imgurl,
+                coctailobject:cocktail_array,
+                coctail_instr:instructions
+            
+            }
+
+            allcocktail_list[i]=cocktail_list;
+           console.log(allcocktail_list);
+
+           localStorage.setItem("cocktaillist", JSON.stringify(allcocktail_list))
         }
 
     });
@@ -195,6 +243,7 @@ function randomcocktail(){
         method:"GET",
     }).then(function(response){
         console.log(response);
+        ran_cocktail_list = [];
        // console.log(response[0].strInstructions);
 
 
@@ -270,6 +319,20 @@ function randomcocktail(){
         }
             $("#cocktail-address").append('<ul> Instruction: ' + instructions + '</ul><br />');
 
+
+            const random_cocktail_list ={
+                cocktailname:drink,
+                coctail_img: imgurl,
+                coctailobject:cocktail_array,
+                coctail_instr:instructions
+            
+            }
+
+            ran_cocktail_list[0]=random_cocktail_list;
+           console.log(ran_cocktail_list);
+
+           localStorage.setItem("random_cocktaillist", JSON.stringify(ran_cocktail_list))
+
         });
 
 };
@@ -286,31 +349,33 @@ var brewArray = JSON.parse(localStorage.getItem("currentbrewery")) || [];
 var cocktailArray = JSON.parse(localStorage.getItem("currentcocktail")) || [];
 
 // functions to save input data into user storage
-function saveBrewery() {
+/*function saveBrewery() {
+
     if(searchplace.val().trim()!==""){
         place=searchplace.val().trim();
         brewArray.push(place);
     localStorage.setItem("currentbrewery",JSON.stringify(brewArray));
     }
-}
-function saveCocktail(){
+}*/
+
+/*function saveCocktail(){
      if(search_cocktailplace.val().trim()!==""){
       cocktail=search_cocktailplace.val().trim();
       cocktailArray.push(cocktail);
     localStorage.setItem('currentcocktail',JSON.stringify(cocktailArray)); 
     }
-}
+}*/
 
 // functions to clear user storage if searchplace is empty
 function clearBrew() {
-    if(searchplace.val().trim()==="") {
+   // if(searchplace.val().trim()==="") {
         localStorage.clear();
-    }
+   // }
 }
 function clearCock() {
-    if(searchplace.val().trim()==="") {
+   // if(searchplace.val().trim()==="") {
         localStorage.clear();
-    }
+   // }
 }
 
 // all the button event to call for it's functions
@@ -318,7 +383,7 @@ searchBrew.on("click",currentbrewery);
 RandomBrew.on("click",randombrewery);
 searchCocktail.on("click",currentcocktail);
 randomCocktail.on("click",randomcocktail);
-favoriteBrewery.on("click",saveBrewery); 
-favoriteCocktail.on("click",saveCocktail);
+//favoriteBrewery.on("click",saveBrewery); 
+//favoriteCocktail.on("click",saveCocktail);
 clearBrewery.on("click",clearBrew)
 clearCocktail.on("click",clearCock)
