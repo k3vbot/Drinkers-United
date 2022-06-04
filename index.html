@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,22 +10,41 @@
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <header class="navbar">
-      <div class="navbar-item">Drinkers United</div>
-  </header>
+    <header class="navbar">
+        <div id="modal-js-example" class="modal">
+            <div class="modal-background"></div>
+
+            <div class="modal-content">
+                <div class="box">
+                    <p>Drinkers United is powered by:
+                    </p>
+                    <ul>
+                        <li>OpenBreweryDB</li>
+                        <li>TheCocktailDB</li>
+                        <li>Bulma.io</li>
+                        <li>FontAwesome</li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+        <button class="button is-danger js-modal-trigger is-small" data-target="modal-js-example">
+            About
+        </button>
+        <div class="navbar-item">Drinkers United</div>
+    </header>
     <div class="container">
         <!--Row for searching a city-->
         <div class="columns">
             <div class="box column is-half" id="firstBox">
                 <!--Here we create an HTML form for handling the inputs-->
                 <h4 class="pt-1"><strong>Brewery:</strong></h4>
-                 
-                  <div class="select is-primary">
-                    <select id="mySelectBox">
-                      <option id="State">by_state</option>
-                      <option id="City">by_city</option>
-                      <option id="Postal">by_postal</option>
+
+                <div class="is-primary">
                     </select>
                   </div>
                  <br></br>
@@ -44,10 +64,12 @@
                 <p><span class="none" id="brewery-address"></span></p> 
                 
             </div>   
+  
             <div class="box column is-half" id="secondBox">
                 <h4 class="pt-1"><strong>Cocktail:</strong></h4>
 
-                <input class="input is-focused is-primary is-normal column is-half mt-8" type="text" placeholder="Search Cocktail" id="Search-cocktailplace">
+                <input class="input is-focused is-primary is-normal column is-half mt-8" type="text"
+                    placeholder="Search for a Cocktail" id="Search-cocktailplace">
 
                 <br>
                 <button class="button is-link" id="Search-Cocktail">
@@ -62,7 +84,7 @@
                   </br>
             </br>
 
-            <p><span class="cocktail_text" id="cocktail-address"></span></p> 
+                <p><span class="cocktail_text" id="cocktail-address"></span></p>
 
             </div>
         </div>
@@ -70,10 +92,11 @@
 
 
 
-       <!--jQuery JS-->
-       <script src="https://code.jquery.com/jquery.js"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-       <script src="assets/script.js"></script>
+    <!--jQuery JS-->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/script.js"></script>
+    <script src="assets/modal.js"></script>
 </body>
-</html>
 
+</html>
