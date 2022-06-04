@@ -37,13 +37,15 @@ if (response.length){
             let state= response[i].state;
             let postal_code= response[i].postal_code;
             let country=response[i].country;
+            let website_url=response[i].website_url;
 
-            $("#brewery-address").append('<ul>' + name + '</ul>');
+            $("#brewery-address").append('<ul> <a href=' + website_url + '>'+ name +'</a>'  + '</ul>');
             $("#brewery-address").append('<ul>' + street + '</ul>');
             $("#brewery-address").append('<ul>' + city + '</ul>');
             $("#brewery-address").append('<ul>' + state + '</ul>');
             $("#brewery-address").append('<ul>' + postal_code + '</ul>');
             $("#brewery-address").append('<ul>' + country + '</ul><hr>');
+            
 
             const brewlist ={
                 brewname:name,
@@ -51,7 +53,8 @@ if (response.length){
                 brewcity:city,
                 brewstate:state,
                 brewpostal_code:postal_code,
-                brewcountry:country
+                brewcountry:country,
+                brewUrl:website_url
             }
 
             allbrewlist[i]=brewlist;
