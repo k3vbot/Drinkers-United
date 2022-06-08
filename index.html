@@ -17,7 +17,7 @@
 <body>
     <header class="navbar">
         <div>
-            <button class="button is-warning is-small"><a href="https://github.com/k3vbot/Drinkers-United">Github</a></button>
+            <button class="button is-warning is-small"><i class="fa-brands fa-github"></i><a href="https://github.com/k3vbot/Drinkers-United">Github</a></button>
         </div>
         <div id="modal-js-example" class="modal">
             <div class="modal-background"></div>
@@ -54,7 +54,7 @@
                     </select>
                   </div>
                  <br></br>
-                  <input class="input is-focused is-primary is-normal column is-half mt-8" type="text" placeholder="Type a place" id="Search-place">
+                  <input class="input is-focused is-primary is-normal column mt-8 deletable" type="text" placeholder="Type a place" id="Search-place">
                   <br>
                   <button class="button is-link is-responsive" id="Search-Brewery">
                     <span class = "icon is-large">
@@ -62,6 +62,7 @@
                     </span>
                     <span>Search</span>
                       </button>
+                      <div class="field is-grouped">
                       <button class="button is-warning is-responsive" id="Random-Brewery">
                         <span class="icon is-large">
                             <i class="fa-solid fa-shuffle"></i>
@@ -75,6 +76,7 @@
                           </span>
                           <span>Clear History</span>
                       </button>
+                    </div>
                     </br>
                 <p><span class="none" id="brewery-address"></span></p> 
                 
@@ -83,7 +85,7 @@
             <div class="box column is-half" id="secondBox">
                 <h4 class="pt-1"><strong>Cocktail:</strong></h4>
 
-                <input class="input is-focused is-primary is-normal column is-half mt-8" type="text"
+                <input class="input is-focused is-primary is-normal column mt-8 deletable" type="text"
                     placeholder="Search for a Cocktail" id="Search-cocktailplace">
 
                 <br>
@@ -93,6 +95,7 @@
                     </span>
                     <span>Search</span>
                     </button>
+                    <div class="field is-grouped">
                     <button class="button is-warning is-responsive" id="Random-Cocktail">
                         <span class="icon is-large">
                             <i class="fa-solid fa-shuffle"></i>
@@ -105,6 +108,7 @@
                           </span>
                           <span>Clear History</span>
                     </button>
+                </div>
                   </br>
             </br>
 
