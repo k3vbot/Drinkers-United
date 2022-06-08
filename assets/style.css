@@ -40,6 +40,7 @@ body {
     color: blue;
     font-family: lobster;
     text-shadow: 2px 2px 5px yellow;
+    justify-content: center;
 }
 
 img {
@@ -77,3 +78,21 @@ span.deleteicon input {
     padding-right: 18px;
     box-sizing: border-box;
 }
+
+@media screen and (max-width: 992px) {
+    .navbar-item {
+     font-size: 100px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .navbar-item {
+        font-size: 75px;
+    }
+    }
+  
+  @media screen and (max-width: 576px) {
+    .navbar-item {
+      font-size: 50px;
+    }
+  }
