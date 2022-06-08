@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,30 +9,55 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
+
 <body>
-  <header class="navbar">
-      <div class="navbar-item">Drinkers United</div>
-  </header>
+    <header class="navbar">
+        <div>
+            <button class="button is-warning is-small"><a href="https://github.com/k3vbot/Drinkers-United">Github</a></button>
+        </div>
+        <div id="modal-js-example" class="modal">
+            <div class="modal-background"></div>
+
+            <div class="modal-content">
+                <div class="box">
+                    <p><strong>Drinkers United is powered by:</strong>
+                    </p>
+                    <ul>
+                        <li><a href="https://www.openbrewerydb.org/"> OpenBreweryDB</a></li>
+                        <li><a href="https://www.thecocktaildb.com/">TheCocktailDB</a></li>
+                        <li><a href="https://bulma.io">Bulma.io</a></li>
+                        <li><a href="https://jquery.com/">jQuery</a></li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+        <button class="button is-danger js-modal-trigger is-small" data-target="modal-js-example">
+            About
+        </button>
+        <div class="navbar-item">Drinkers United</div>
+    </header>
     <div class="container">
         <!--Row for searching a city-->
         <div class="columns">
             <div class="box column is-half" id="firstBox">
                 <!--Here we create an HTML form for handling the inputs-->
                 <h4 class="pt-1"><strong>Brewery:</strong></h4>
-                 
-                  <div class="select is-primary">
-                    <select id="mySelectBox">
-                      <option id="State">by_state</option>
-                      <option id="City">by_city</option>
-                      <option id="Postal">by_postal</option>
+
+                <div class="is-primary">
                     </select>
                   </div>
                  <br></br>
                   <input class="input is-focused is-primary is-normal column is-half mt-8" type="text" placeholder="Type a place" id="Search-place">
                   <br>
                   <button class="button is-link" id="Search-Brewery">
-                        Search
+                    <span class="material-symbols-outlined">Search
+                        </span>
                       </button>
                       <button class="button is-warning" id="Random-Brewery">
                         Random
@@ -44,14 +70,16 @@
                 <p><span class="none" id="brewery-address"></span></p> 
                 
             </div>   
+  
             <div class="box column is-half" id="secondBox">
                 <h4 class="pt-1"><strong>Cocktail:</strong></h4>
 
-                <input class="input is-focused is-primary is-normal column is-half mt-8" type="text" placeholder="Search Cocktail" id="Search-cocktailplace">
+                <input class="input is-focused is-primary is-normal column is-half mt-8" type="text"
+                    placeholder="Search for a Cocktail" id="Search-cocktailplace">
 
                 <br>
                 <button class="button is-link" id="Search-Cocktail">
-                      Search
+                    <span class="material-symbols-outlined">Search</span>
                     </button>
                     <button class="button is-warning" id="Random-Cocktail">
                       Random
@@ -62,7 +90,7 @@
                   </br>
             </br>
 
-            <p><span class="cocktail_text" id="cocktail-address"></span></p> 
+                <p><span class="cocktail_text" id="cocktail-address"></span></p>
 
             </div>
         </div>
@@ -70,10 +98,11 @@
 
 
 
-       <!--jQuery JS-->
-       <script src="https://code.jquery.com/jquery.js"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-       <script src="assets/script.js"></script>
+    <!--jQuery JS-->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/script.js"></script>
+    <script src="assets/modal.js"></script>
 </body>
-</html>
 
+</html>

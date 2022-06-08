@@ -5,7 +5,7 @@ let cocktail = "";
 let search_cocktailplace = $("#Search-cocktailplace");
 let searchBrew = $("#Search-Brewery");
 let searchCocktail = $("#Search-Cocktail");
-let RandomBrew = $("#Random-Brewery");
+let randomBrew = $("#Random-Brewery");
 let randomCocktail = $("#Random-Cocktail");
 
 
@@ -18,8 +18,7 @@ function currentbrewery(place){
     // Here we build the URL so we can get a data from server side.
     if(searchplace.val().trim()!==""){
         place=searchplace.val().trim();
-    let filter = $('#mySelectBox option').filter(':selected').text();
-    let queryURL= "https://api.openbrewerydb.org/breweries?" +filter + "=" + place + "&per_page=5";
+    let queryURL= "https://api.openbrewerydb.org/breweries?by_city" + "=" + place + "&per_page=5";
     // localStorage.setItem("currentbrewery",place); // set value to local storage
    
     // let queryURL= "https://api.openbrewerydb.org/breweries?by_state=" + place + "&per_page=5";
@@ -38,13 +37,16 @@ if (response.length){
             let state= response[i].state;
             let postal_code= response[i].postal_code;
             let country=response[i].country;
-            let website_url =  response[i].website_url;
-            $("#brewery-address").append('<ul her>' + name + '</ul>');
+
+            let website_url=response[i].website_url;
+
+            $("#brewery-address").append('<ul> <a href=' + website_url + '>'+ name +'</a>'  + '</ul>');
             $("#brewery-address").append('<ul>' + street + '</ul>');
             $("#brewery-address").append('<ul>' + city + '</ul>');
             $("#brewery-address").append('<ul>' + state + '</ul>');
             $("#brewery-address").append('<ul>' + postal_code + '</ul>');
             $("#brewery-address").append('<ul>' + country + '</ul><hr>');
+            
 
             const brewlist ={
                 brewname:name,
@@ -52,7 +54,8 @@ if (response.length){
                 brewcity:city,
                 brewstate:state,
                 brewpostal_code:postal_code,
-                brewcountry:country
+                brewcountry:country,
+                brewUrl:website_url
             }
 
             allbrewlist[i]=brewlist;
@@ -94,8 +97,9 @@ function randombrewery(){
             let state= response[0].state;
             let postal_code= response[0].postal_code;
             let country=response[0].country;
+            let website_url=response[0].website_url;
 
-            $("#brewery-address").append('<ul>' + name + '</ul>');
+            $("#brewery-address").append('<ul> <a href=' + website_url + '>' + name + '</a>' + '</ul>');
             $("#brewery-address").append('<ul>' + street + '</ul>');
             $("#brewery-address").append('<ul>' + city + '</ul>');
             $("#brewery-address").append('<ul>' + state + '</ul>');
@@ -363,7 +367,7 @@ function clearCock() {
 
 // all the button event to call for it's functions
 searchBrew.on("click",currentbrewery);
-RandomBrew.on("click",randombrewery);
+randomBrew.on("click",randombrewery);
 searchCocktail.on("click",currentcocktail);
 randomCocktail.on("click",randomcocktail);
 clearBrewery.on("click",clearBrew)
