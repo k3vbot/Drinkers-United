@@ -96,8 +96,9 @@ function randombrewery(){
             let state= response[0].state;
             let postal_code= response[0].postal_code;
             let country=response[0].country;
+            let website_url=response[0].website_url;
 
-            $("#brewery-address").append('<ul>' + name + '</ul>');
+            $("#brewery-address").append('<ul> <a href=' + website_url + '>' + name + '</a>' + '</ul>');
             $("#brewery-address").append('<ul>' + street + '</ul>');
             $("#brewery-address").append('<ul>' + city + '</ul>');
             $("#brewery-address").append('<ul>' + state + '</ul>');
