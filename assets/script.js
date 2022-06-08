@@ -75,7 +75,7 @@ if (response.length){
 
     }
     else
-{ $("#brewery-address").append('<ul> cannot find this brewery in this place </ul>');}
+{ $("#brewery-address").append('<ul> Cannot find a brewery there :( </ul>');}
     });
 };
 };
@@ -235,7 +235,6 @@ function currentcocktail(cocktail){
 
            localStorage.setItem("cocktaillist", JSON.stringify(allcocktail_list))
         }
-
     });
 }
 
