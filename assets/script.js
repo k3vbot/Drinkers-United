@@ -38,8 +38,8 @@ if (response.length){
             let state= response[i].state;
             let postal_code= response[i].postal_code;
             let country=response[i].country;
-
-            $("#brewery-address").append('<ul>' + name + '</ul>');
+            let website_url =  response[i].website_url;
+            $("#brewery-address").append('<ul her>' + name + '</ul>');
             $("#brewery-address").append('<ul>' + street + '</ul>');
             $("#brewery-address").append('<ul>' + city + '</ul>');
             $("#brewery-address").append('<ul>' + state + '</ul>');
@@ -348,34 +348,17 @@ let clearCocktail = $("#clear-cocktail")
 var brewArray = JSON.parse(localStorage.getItem("currentbrewery")) || [];
 var cocktailArray = JSON.parse(localStorage.getItem("currentcocktail")) || [];
 
-// functions to save input data into user storage
-/*function saveBrewery() {
 
-    if(searchplace.val().trim()!==""){
-        place=searchplace.val().trim();
-        brewArray.push(place);
-    localStorage.setItem("currentbrewery",JSON.stringify(brewArray));
-    }
-}*/
-
-/*function saveCocktail(){
-     if(search_cocktailplace.val().trim()!==""){
-      cocktail=search_cocktailplace.val().trim();
-      cocktailArray.push(cocktail);
-    localStorage.setItem('currentcocktail',JSON.stringify(cocktailArray)); 
-    }
-}*/
 
 // functions to clear user storage if searchplace is empty
 function clearBrew() {
-   // if(searchplace.val().trim()==="") {
-        localStorage.clear();
-   // }
+    $(".none").empty()
+    localStorage.clear();
+ 
 }
 function clearCock() {
-   // if(searchplace.val().trim()==="") {
+    $(".cocktail_text").empty();
         localStorage.clear();
-   // }
 }
 
 // all the button event to call for it's functions
@@ -383,7 +366,5 @@ searchBrew.on("click",currentbrewery);
 RandomBrew.on("click",randombrewery);
 searchCocktail.on("click",currentcocktail);
 randomCocktail.on("click",randomcocktail);
-//favoriteBrewery.on("click",saveBrewery); 
-//favoriteCocktail.on("click",saveCocktail);
 clearBrewery.on("click",clearBrew)
 clearCocktail.on("click",clearCock)
