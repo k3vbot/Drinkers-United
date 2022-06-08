@@ -377,6 +377,7 @@ function currentcocktail(cocktail) {
                     return listItem;
                 }, '');
                 const cardTemplate = `
+                <br>
                     <div class="card">
                     <div class="card-image">
                         <figure class="image is-4by3">
@@ -394,13 +395,18 @@ function currentcocktail(cocktail) {
                             <ul>
                                 ${cardContent}
                             </ul>
+                            Instruction:
+                            <ul>
+                                ${instructions}
+                            </ul>
                         </div>
                     </div>
                     <footer class="card-footer">
                         <a href="#" class="card-footer-item" onclick="handleAddToFavorites()">Add to Favorites</a>
 
                     </footer>
-                    </div>`;
+                    </div>
+                    </br>`;
 
                 // make a card for this
                 $("#cocktail-address").append(cardTemplate);
