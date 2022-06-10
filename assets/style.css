@@ -74,6 +74,9 @@ span.deleteicon span {
     cursor: pointer;
 }
 
+.box {
+    float: left;
+}
 span.deleteicon input {
     padding-right: 18px;
     box-sizing: border-box;
