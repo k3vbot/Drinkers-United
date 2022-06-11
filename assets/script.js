@@ -135,7 +135,8 @@ function randombrewery() {
             brewcity: city,
             brewstate: state,
             brewpostal_code: postal_code,
-            brewcountry: country
+            brewcountry: country,
+            brewUrl: website_url
         }
 
         randomlist[0] = randombrewlist;
@@ -147,53 +148,6 @@ function randombrewery() {
     });
 
 };
-
-function randombrewery() {
-    $(".none").empty()
-    // Here we build the URL so we can get a data from server side.
-
-    let squeryURL = "https://api.openbrewerydb.org/breweries/random";
-
-    $.ajax({
-        url: squeryURL,
-        method: "GET",
-        cache: false
-    }).then(function (response) {
-        console.log(response);
-        randomlist = [];
-        let name = response[0].name;
-        let street = response[0].street;
-        let city = response[0].city;
-        let state = response[0].state;
-        let postal_code = response[0].postal_code;
-        let country = response[0].country;
-
-        $("#brewery-address").append('<ul>' + name + '</ul>');
-        $("#brewery-address").append('<ul>' + street + '</ul>');
-        $("#brewery-address").append('<ul>' + city + '</ul>');
-        $("#brewery-address").append('<ul>' + state + '</ul>');
-        $("#brewery-address").append('<ul>' + postal_code + '</ul>');
-        $("#brewery-address").append('<ul>' + country + '</ul><br />');
-
-
-        const randombrewlist = {
-            brewname: name,
-            brewnamestreet: street,
-            brewcity: city,
-            brewstate: state,
-            brewpostal_code: postal_code,
-            brewcountry: country
-        }
-
-        randomlist[0] = randombrewlist;
-        console.log(randomlist);
-
-        localStorage.setItem("randomlist", JSON.stringify(randomlist))
-
-
-    });
-
-}
 
 function searchCocktail() {
     console.log(cocktailSearchTermInput);
