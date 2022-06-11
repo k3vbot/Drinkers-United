@@ -240,9 +240,6 @@ function searchCocktail() {
                             </ul>
                         </div>
                     </div>
-                    <footer class="card-footer">
-                        <a class="card-footer-item" onclick="handleAddToFavorites()">Add to Favorites</a>
-                    </footer>
                     </div>
                     </br>`;
 
