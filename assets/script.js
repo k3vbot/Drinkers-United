@@ -265,7 +265,7 @@ function searchCocktail() {
 function searchRandomCocktail() {
     console.log(cocktailSearchTermInput);
     $(".cocktail_text").empty();
-    if (cocktailSearchTermInput.val().trim() === "") {
+    if (cocktailSearchTermInput.val().trim().length >= 0) {
         const radomCocktail = cocktailSearchTermInput.val().trim();
     // Here we build the URL so we can get a data from server side.
     let queryURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
