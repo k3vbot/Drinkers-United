@@ -16,15 +16,13 @@ body {
 }
 
 #firstBox {
-    display: flex;
-    flex-wrap: wrap;
+    min-width: 500px;
     margin: 0;
     box-shadow: 0px 0px 10px;
 }
 
 #secondBox {
-    display: flex;
-    flex-wrap: wrap;
+    min-width: 500px;
     box-shadow: 0px 0px 10px;
 
 }
@@ -44,10 +42,10 @@ body {
 }
 
 img {
-    border-radius:8px;
+    border-radius: 8px;
     width: 300px;
     height: 300px;
-  }
+}
 
 hr {
     background-color: black;
@@ -77,6 +75,7 @@ span.deleteicon span {
 .box {
     float: left;
 }
+
 span.deleteicon input {
     padding-right: 18px;
     box-sizing: border-box;
@@ -84,18 +83,18 @@ span.deleteicon input {
 
 @media screen and (max-width: 992px) {
     .navbar-item {
-     font-size: 100px;
+        font-size: 100px;
     }
-  }
-  
-  @media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 768px) {
     .navbar-item {
         font-size: 75px;
     }
-    }
-  
-  @media screen and (max-width: 576px) {
+}
+
+@media screen and (max-width: 576px) {
     .navbar-item {
-      font-size: 50px;
+        font-size: 50px;
     }
-  }
+}
