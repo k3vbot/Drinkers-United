@@ -13,7 +13,19 @@ let cocktail = "";
 let searchBrew = $("#Search-Brewery");
 let randomBrew = $("#Random-Brewery");
 
+searchPlace.keypress(function (event) {
+    if (event.which === 13) {
+        searchBrew.click()
+        return false
+    }
+});
 
+cocktailSearchTermInput.keypress(function (event) {
+    if (event.which === 13) {
+        searchCocktailBtn.click()
+        return false
+    }
+});
 
 
 console.log(searchPlace);
@@ -44,7 +56,7 @@ function searchBrewery() {
                     let country = response[i].country;
                     let website_url = response[i].website_url;
 
-                    $("#brewery-address").append('<ul> <a href=' + website_url + '>' + name + '</a>' + '</ul>');
+                    $("#brewery-address").append('<ul> <a href=' + website_url + ' target="_blank"' + '>' + name + '</a>' + '</ul>');
                     $("#brewery-address").append('<ul>' + street + '</ul>');
                     $("#brewery-address").append('<ul>' + city + '</ul>');
                     $("#brewery-address").append('<ul>' + state + '</ul>');
@@ -267,67 +279,67 @@ function searchRandomCocktail() {
     $(".cocktail_text").empty();
     if (cocktailSearchTermInput.val().trim().length >= 0) {
         const radomCocktail = cocktailSearchTermInput.val().trim();
-    // Here we build the URL so we can get a data from server side.
-    let queryURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
-    
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-    }).then(function (response) {
-        console.log(response);
-        const randomCoctail = [];
+        // Here we build the URL so we can get a data from server side.
+        let queryURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
-        for (let i = 0; i < response.drinks.length; i++) {
-            const randomCocktail = response.drinks[i];
-            const instructions = randomCocktail.strInstructions;
-            const drinkName = randomCocktail.strDrink;
-            const ingredientsAndMeasurements = [
-                // API Data structure has 15 ingredients hard-coded as keys
-                // we are assuming that we will always have a maximum of 15 ingredients and measurements
-                { ingredient: randomCocktail.strIngredient1, measurement: randomCocktail.strMeasure1 },
-                { ingredient: randomCocktail.strIngredient2, measurement: randomCocktail.strMeasure2 },
-                { ingredient: randomCocktail.strIngredient3, measurement: randomCocktail.strMeasure3 },
-                { ingredient: randomCocktail.strIngredient4, measurement: randomCocktail.strMeasure4 },
-                { ingredient: randomCocktail.strIngredient5, measurement: randomCocktail.strMeasure5 },
-                { ingredient: randomCocktail.strIngredient6, measurement: randomCocktail.strMeasure6 },
-                { ingredient: randomCocktail.strIngredient7, measurement: randomCocktail.strMeasure7 },
-                { ingredient: randomCocktail.strIngredient8, measurement: randomCocktail.strMeasure8 },
-                { ingredient: randomCocktail.strIngredient9, measurement: randomCocktail.strMeasure9 },
-                { ingredient: randomCocktail.strIngredient10, measurement: randomCocktail.strMeasure10 },
-                { ingredient: randomCocktail.strIngredient11, measurement: randomCocktail.strMeasure11 },
-                { ingredient: randomCocktail.strIngredient12, measurement: randomCocktail.strMeasure12 },
-                { ingredient: randomCocktail.strIngredient13, measurement: randomCocktail.strMeasure13 },
-                { ingredient: randomCocktail.strIngredient14, measurement: randomCocktail.strMeasure14 },
-                { ingredient: randomCocktail.strIngredient15, measurement: randomCocktail.strMeasure15 },
-            ];
-            const drinkImageUrl = randomCocktail.strDrinkThumb;
-            const cardContent = ingredientsAndMeasurements.reduce((previousItem, currentItem) => {
-                let listItem = previousItem;
+        $.ajax({
+            url: queryURL,
+            method: "GET",
+        }).then(function (response) {
+            console.log(response);
+            const randomCoctail = [];
 
-                const ingredientIsNotNullOrEmpty = currentItem.ingredient?.trim().length;
-                const measurementIsNotNullOrEmpty = currentItem.measurement?.trim().length;
+            for (let i = 0; i < response.drinks.length; i++) {
+                const randomCocktail = response.drinks[i];
+                const instructions = randomCocktail.strInstructions;
+                const drinkName = randomCocktail.strDrink;
+                const ingredientsAndMeasurements = [
+                    // API Data structure has 15 ingredients hard-coded as keys
+                    // we are assuming that we will always have a maximum of 15 ingredients and measurements
+                    { ingredient: randomCocktail.strIngredient1, measurement: randomCocktail.strMeasure1 },
+                    { ingredient: randomCocktail.strIngredient2, measurement: randomCocktail.strMeasure2 },
+                    { ingredient: randomCocktail.strIngredient3, measurement: randomCocktail.strMeasure3 },
+                    { ingredient: randomCocktail.strIngredient4, measurement: randomCocktail.strMeasure4 },
+                    { ingredient: randomCocktail.strIngredient5, measurement: randomCocktail.strMeasure5 },
+                    { ingredient: randomCocktail.strIngredient6, measurement: randomCocktail.strMeasure6 },
+                    { ingredient: randomCocktail.strIngredient7, measurement: randomCocktail.strMeasure7 },
+                    { ingredient: randomCocktail.strIngredient8, measurement: randomCocktail.strMeasure8 },
+                    { ingredient: randomCocktail.strIngredient9, measurement: randomCocktail.strMeasure9 },
+                    { ingredient: randomCocktail.strIngredient10, measurement: randomCocktail.strMeasure10 },
+                    { ingredient: randomCocktail.strIngredient11, measurement: randomCocktail.strMeasure11 },
+                    { ingredient: randomCocktail.strIngredient12, measurement: randomCocktail.strMeasure12 },
+                    { ingredient: randomCocktail.strIngredient13, measurement: randomCocktail.strMeasure13 },
+                    { ingredient: randomCocktail.strIngredient14, measurement: randomCocktail.strMeasure14 },
+                    { ingredient: randomCocktail.strIngredient15, measurement: randomCocktail.strMeasure15 },
+                ];
+                const drinkImageUrl = randomCocktail.strDrinkThumb;
+                const cardContent = ingredientsAndMeasurements.reduce((previousItem, currentItem) => {
+                    let listItem = previousItem;
 
-                if (ingredientIsNotNullOrEmpty || measurementIsNotNullOrEmpty) {
-                    listItem += '<li>';
+                    const ingredientIsNotNullOrEmpty = currentItem.ingredient?.trim().length;
+                    const measurementIsNotNullOrEmpty = currentItem.measurement?.trim().length;
 
-                    if (ingredientIsNotNullOrEmpty) { // ? is the safe navigation/Optional Chaining operator that lets you check if it has the property or method first
-                        listItem += currentItem.ingredient;
+                    if (ingredientIsNotNullOrEmpty || measurementIsNotNullOrEmpty) {
+                        listItem += '<li>';
+
+                        if (ingredientIsNotNullOrEmpty) { // ? is the safe navigation/Optional Chaining operator that lets you check if it has the property or method first
+                            listItem += currentItem.ingredient;
+                        }
+
+                        if (ingredientIsNotNullOrEmpty && measurementIsNotNullOrEmpty) {
+                            listItem += ' - ';
+                        }
+
+                        if (measurementIsNotNullOrEmpty) {
+                            listItem += currentItem.measurement;
+                        }
+
+                        listItem += '</li>';
                     }
 
-                    if (ingredientIsNotNullOrEmpty && measurementIsNotNullOrEmpty) {
-                        listItem += ' - ';
-                    }
-
-                    if (measurementIsNotNullOrEmpty) {
-                        listItem += currentItem.measurement;
-                    }
-
-                    listItem += '</li>';
-                }
-
-                return listItem;
-            }, '');
-            const cardTemplate = `
+                    return listItem;
+                }, '');
+                const cardTemplate = `
             <br>
                 <div class="card">
                 <div class="card-image">
@@ -355,22 +367,22 @@ function searchRandomCocktail() {
                 </div>
                 </br>`;
 
-            // make a card for this
-            $("#cocktail-address").append(cardTemplate);
+                // make a card for this
+                $("#cocktail-address").append(cardTemplate);
 
-            const cocktailMetadata = {
-                drinkName,
-                drinkImageUrl,
-                ingredientsAndMeasurements,
-                instructions
-            };
+                const cocktailMetadata = {
+                    drinkName,
+                    drinkImageUrl,
+                    ingredientsAndMeasurements,
+                    instructions
+                };
 
-            cocktails.push(cocktailMetadata);
-        }
+                cocktails.push(cocktailMetadata);
+            }
 
-        localStorage.setItem("cocktails", JSON.stringify(cocktails));
+            localStorage.setItem("cocktails", JSON.stringify(cocktails));
 
-    });
+        });
 
     }
 }
