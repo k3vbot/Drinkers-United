@@ -45,80 +45,81 @@
         </button>
         <div class="navbar-item">Drinkers United</div>
     </header>
+
+    <br>
+    </br>
     <!--Row for searching a city-->
-    <div class="columns">
-        <div class="column" id="firstBox">
-            <!--Here we create an HTML form for handling the inputs-->
-            <h4 class="pt-1"><strong>Brewery:</strong></h4>
+    <div class="box column is-half" id="firstBox">
+        <!--Here we create an HTML form for handling the inputs-->
+        <h4 class="pt-1"><strong>Brewery:</strong></h4>
 
-            <div class="is-primary is responsive">
-                </select>
-            </div>
-            <br></br>
-            <input class="input is-focused is-primary is-normal column mt-8 deletable" type="text"
-                placeholder="Type a place" id="Search-place">
-            <br>
-            <button class="button is-link is-responsive" id="Search-Brewery">
-                <span class="icon is-large">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </span>
-                <span>Search</span>
-            </button>
-            <div class="field is-grouped">
-                <button class="button is-warning is-responsive" id="Random-Brewery">
-                    <span class="icon is-large">
-                        <i class="fa-solid fa-shuffle"></i>
-                    </span>
-                    <span>Random</span>
-                </button>
 
-                <button class="button is-danger is-responsive" id="clear-brewery">
-                    <span class="icon is-large">
-                        <i class="fas fa-times"></i>
-                    </span>
-                    <span>Clear History</span>
-                </button>
-            </div>
-            </br>
-            <p><span class="none" id="brewery-address"></span></p>
+        <input class="input is-focused is-primary is-normal column mt-8 deletable" type="text"
+            placeholder="Type a place" id="Search-place">
+        <br>
+        </br>
+        <button class="button is-link is-responsive" id="Search-Brewery">
+            <span class="icon is-large">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <span>Search</span>
+        </button>
 
-        </div>
+        <button class="button is-warning is-responsive" id="Random-Brewery">
+            <span class="icon is-large">
+                <i class="fa-solid fa-shuffle"></i>
+            </span>
+            <span>Random</span>
+        </button>
 
-        <div class="column" id="secondBox">
-            <h4 class="pt-1"><strong>Cocktail:</strong></h4>
+        <button class="button is-danger is-responsive" id="clear-brewery">
+            <span class="icon is-large">
+                <i class="fas fa-times"></i>
+            </span>
+            <span>Clear History</span>
+        </button>
 
-            <input class="input is-focused is-primary is-normal column mt-8 deletable" type="text"
-                placeholder="Search for a Cocktail" id="cocktail-search-term">
+        </br>
+        <p><span class="none" id="brewery-address"></span></p>
 
-            <br>
-            <button class="button is-link is-responsive" id="Search-Cocktail">
-                <span class="icon is-large">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </span>
-                <span>Search</span>
-            </button>
-            <div class="field is-grouped">
-                <button class="button is-warning is-responsive" id="Random-Cocktail">
-                    <span class="icon is-large">
-                        <i class="fa-solid fa-shuffle"></i>
-                    </span>
-                    <span>Random</span>
-                </button>
-                <button class="button is-danger is-responsive" id="clear-cocktail">
-                    <span class="icon is-large">
-                        <i class="fas fa-times"></i>
-                    </span>
-                    <span>Clear History</span>
-                </button>
-            </div>
-            </br>
-            </br>
-
-            <p><span class="cocktail_text" id="cocktail-address"></span></p>
-
-        </div>
     </div>
-    
+
+    <div class="box column is-half" id="secondBox">
+        <h4 class="pt-1"><strong>Cocktail:</strong></h4>
+
+        <input class="input is-focused is-primary is-normal column mt-8 deletable" type="text"
+            placeholder="Search for a Cocktail" id="cocktail-search-term">
+
+        <br>
+        </br>
+        <button class="button is-link is-responsive" id="Search-Cocktail">
+            <span class="icon is-large">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <span>Search</span>
+        </button>
+
+        <button class="button is-warning is-responsive" id="Random-Cocktail">
+            <span class="icon is-large">
+                <i class="fa-solid fa-shuffle"></i>
+            </span>
+            <span>Random</span>
+        </button>
+        <button class="button is-danger is-responsive" id="clear-cocktail">
+            <span class="icon is-large">
+                <i class="fas fa-times"></i>
+            </span>
+            <span>Clear History</span>
+        </button>
+
+
+        </br>
+
+        <p><span class="cocktail_text" id="cocktail-address"></span></p>
+
+    </div>
+    </div>
+
 
 
 
