@@ -4,7 +4,7 @@ $(document).ready(function () {
     }));
 })
 
-const searchplace = $("#Search-place");
+const searchPlace = $("#Search-place");
 const searchCocktailBtn = $("#Search-Cocktail");
 const randomCocktailBtn = $("#Random-Cocktail");
 const cocktailSearchTermInput = $("#cocktail-search-term");
@@ -16,13 +16,13 @@ let randomBrew = $("#Random-Brewery");
 
 
 
-console.log(searchplace);
+console.log(searchPlace);
 
 function currentbrewery() {
     $(".none").empty()
     // Here we build the URL so we can get a data from server side.
-    if (searchplace.val().trim() !== "") {
-        const place = searchplace.val().trim();
+    if (searchPlace.val().trim() !== "") {
+        const place = searchPlace.val().trim();
         const queryURL = "https://api.openbrewerydb.org/breweries?by_city" + "=" + place + "&per_page=5";
         // localStorage.setItem("currentbrewery",place); // set value to local storage
 
@@ -53,12 +53,12 @@ function currentbrewery() {
 
 
                     const brewlist = {
-                        brewname: name,
-                        brewnamestreet: street,
-                        brewcity: city,
-                        brewstate: state,
-                        brewpostal_code: postal_code,
-                        brewcountry: country,
+                        brewName: name,
+                        brewNameStreet: street,
+                        brewCity: city,
+                        brewState: state,
+                        brewPostal_code: postal_code,
+                        brewCountry: country,
                         brewUrl: website_url
                     }
 
@@ -130,12 +130,12 @@ function randombrewery() {
 
 
         const randombrewlist = {
-            brewname: name,
-            brewnamestreet: street,
-            brewcity: city,
-            brewstate: state,
-            brewpostal_code: postal_code,
-            brewcountry: country,
+            brewName: name,
+            brewNameStreet: street,
+            brewCity: city,
+            brewState: state,
+            brewPostal_code: postal_code,
+            brewCountry: country,
             brewUrl: website_url
         }
 
@@ -379,7 +379,7 @@ const cocktails = JSON.parse(localStorage.getItem("search")) || [];
 
 
 
-// functions to clear user storage if searchplace is empty
+// functions to clear user storage if searchPlace is empty
 function clearBrew() {
     $(".none").empty()
     localStorage.clear();
