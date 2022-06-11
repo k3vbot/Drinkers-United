@@ -15,6 +15,11 @@ body {
     gap: 50px;
 }
 
+.tile:not(.is-child) {
+    justify-content: space-around;
+}
+
+
 #firstBox {
     min-width: 500px;
     margin: 0;
