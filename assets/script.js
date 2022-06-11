@@ -4,7 +4,7 @@ $(document).ready(function () {
     }));
 })
 
-const searchplace = $("#Search-place");
+const searchPlace = $("#Search-place");
 const searchCocktailBtn = $("#Search-Cocktail");
 const randomCocktailBtn = $("#Random-Cocktail");
 const cocktailSearchTermInput = $("#cocktail-search-term");
@@ -16,13 +16,13 @@ let randomBrew = $("#Random-Brewery");
 
 
 
-console.log(searchplace);
+console.log(searchPlace);
 
-function currentbrewery() {
+function searchBrewery() {
     $(".none").empty()
     // Here we build the URL so we can get a data from server side.
-    if (searchplace.val().trim() !== "") {
-        const place = searchplace.val().trim();
+    if (searchPlace.val().trim() !== "") {
+        const place = searchPlace.val().trim();
         const queryURL = "https://api.openbrewerydb.org/breweries?by_city" + "=" + place + "&per_page=5";
         // localStorage.setItem("currentbrewery",place); // set value to local storage
 
@@ -32,7 +32,7 @@ function currentbrewery() {
             method: "GET",
         }).then(function (response) {
             console.log(response);
-            let allbrewlist = [];
+            let allBrewList = [];
 
             if (response.length) {
                 for (let i = 0; i < 5; i++) {
@@ -53,19 +53,19 @@ function currentbrewery() {
 
 
                     const brewlist = {
-                        brewname: name,
-                        brewnamestreet: street,
-                        brewcity: city,
-                        brewstate: state,
-                        brewpostal_code: postal_code,
-                        brewcountry: country,
+                        brewName: name,
+                        brewNameStreet: street,
+                        brewCity: city,
+                        brewState: state,
+                        brewPostal_code: postal_code,
+                        brewCountry: country,
                         brewUrl: website_url
                     }
 
-                    allbrewlist[i] = brewlist;
-                    console.log(allbrewlist);
+                    allBrewList[i] = brewlist;
+                    console.log(allBrewList);
 
-                    localStorage.setItem("brewlist", JSON.stringify(allbrewlist))
+                    localStorage.setItem("brewlist", JSON.stringify(allBrewList))
 
                 }
 
@@ -78,21 +78,16 @@ function currentbrewery() {
                         let state = response[i].state;
                         let postal_code = response[i].postal_code;
                         let country = response[i].country;
-
                         let website_url = response[i].website_url;
-
 
                     }
 
-                    allbrewlist[i] = brewlist;
-                    console.log(allbrewlist);
+                    allBrewList[i] = brewlist;
+                    console.log(allBrewList);
 
-                    localStorage.setItem("brewlist", JSON.stringify(allbrewlist))
+                    localStorage.setItem("brewlist", JSON.stringify(allBrewList))
 
                 }
-
-
-
 
             }
             else { $("#brewery-address").append('<ul> Cannot find a brewery there :( </ul>'); }
@@ -100,7 +95,7 @@ function currentbrewery() {
     };
 };
 
-function randombrewery() {
+function randomBrewery() {
     $(".none").empty()
     // Here we build the URL so we can get a data from server side.
 
@@ -130,12 +125,12 @@ function randombrewery() {
 
 
         const randombrewlist = {
-            brewname: name,
-            brewnamestreet: street,
-            brewcity: city,
-            brewstate: state,
-            brewpostal_code: postal_code,
-            brewcountry: country
+            brewName: name,
+            brewNameStreet: street,
+            brewCity: city,
+            brewState: state,
+            brewPostal_code: postal_code,
+            brewCountry: country
         }
 
         randomlist[0] = randombrewlist;
@@ -148,7 +143,7 @@ function randombrewery() {
 
 };
 
-function randombrewery() {
+function randomBrewery() {
     $(".none").empty()
     // Here we build the URL so we can get a data from server side.
 
@@ -167,8 +162,9 @@ function randombrewery() {
         let state = response[0].state;
         let postal_code = response[0].postal_code;
         let country = response[0].country;
+        let website_url = response[0].website_url;
 
-        $("#brewery-address").append('<ul>' + name + '</ul>');
+        $("#brewery-address").append('<ul> <a href=' + website_url + '>' + name + '</a>' + '</ul>');
         $("#brewery-address").append('<ul>' + street + '</ul>');
         $("#brewery-address").append('<ul>' + city + '</ul>');
         $("#brewery-address").append('<ul>' + state + '</ul>');
@@ -177,12 +173,12 @@ function randombrewery() {
 
 
         const randombrewlist = {
-            brewname: name,
-            brewnamestreet: street,
-            brewcity: city,
-            brewstate: state,
-            brewpostal_code: postal_code,
-            brewcountry: country
+            brewName: name,
+            brewNameStreet: street,
+            brewCity: city,
+            brewState: state,
+            brewPostal_code: postal_code,
+            brewCountry: country
         }
 
         randomlist[0] = randombrewlist;
@@ -425,7 +421,7 @@ const cocktails = JSON.parse(localStorage.getItem("search")) || [];
 
 
 
-// functions to clear user storage if searchplace is empty
+// functions to clear user storage if searchPlace is empty
 function clearBrew() {
     $(".none").empty()
     localStorage.clear();
@@ -437,8 +433,8 @@ function clearCock() {
 }
 
 // all the button event to call for it's functions
-searchBrew.on("click", currentbrewery);
-randomBrew.on("click", randombrewery);
+searchBrew.on("click", searchBrewery);
+randomBrew.on("click", randomBrewery);
 searchCocktailBtn.on("click", searchCocktail);
 randomCocktailBtn.on("click", searchRandomCocktail);
 clearBreweryBtn.on("click", clearBrew)
