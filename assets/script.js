@@ -13,9 +13,6 @@ let cocktail = "";
 let searchBrew = $("#Search-Brewery");
 let randomBrew = $("#Random-Brewery");
 
-
-
-
 console.log(searchplace);
 
 function currentbrewery() {
@@ -147,53 +144,6 @@ function randombrewery() {
     });
 
 };
-
-function randombrewery() {
-    $(".none").empty()
-    // Here we build the URL so we can get a data from server side.
-
-    let squeryURL = "https://api.openbrewerydb.org/breweries/random";
-
-    $.ajax({
-        url: squeryURL,
-        method: "GET",
-        cache: false
-    }).then(function (response) {
-        console.log(response);
-        randomlist = [];
-        let name = response[0].name;
-        let street = response[0].street;
-        let city = response[0].city;
-        let state = response[0].state;
-        let postal_code = response[0].postal_code;
-        let country = response[0].country;
-
-        $("#brewery-address").append('<ul>' + name + '</ul>');
-        $("#brewery-address").append('<ul>' + street + '</ul>');
-        $("#brewery-address").append('<ul>' + city + '</ul>');
-        $("#brewery-address").append('<ul>' + state + '</ul>');
-        $("#brewery-address").append('<ul>' + postal_code + '</ul>');
-        $("#brewery-address").append('<ul>' + country + '</ul><br />');
-
-
-        const randombrewlist = {
-            brewname: name,
-            brewnamestreet: street,
-            brewcity: city,
-            brewstate: state,
-            brewpostal_code: postal_code,
-            brewcountry: country
-        }
-
-        randomlist[0] = randombrewlist;
-        console.log(randomlist);
-
-        localStorage.setItem("randomlist", JSON.stringify(randomlist))
-
-
-    });
-
-}
 
 function searchCocktail() {
     console.log(cocktailSearchTermInput);
@@ -423,15 +373,13 @@ const clearCocktailBtn = $("#clear-cocktail")
 const breweries = JSON.parse(localStorage.getItem("currentbrewery")) || [];
 const cocktails = JSON.parse(localStorage.getItem("search")) || [];
 
-
-
 // functions to clear user storage if searchplace is empty
 function clearBrew() {
     $(".none").empty()
     localStorage.clear();
 
 }
-function clearCock() {
+function clearCocktail() {
     $(".cocktail_text").empty();
     localStorage.clear();
 }
@@ -442,4 +390,4 @@ randomBrew.on("click", randombrewery);
 searchCocktailBtn.on("click", searchCocktail);
 randomCocktailBtn.on("click", searchRandomCocktail);
 clearBreweryBtn.on("click", clearBrew)
-clearCocktailBtn.on("click", clearCock)
+clearCocktailBtn.on("click", clearCocktail)
