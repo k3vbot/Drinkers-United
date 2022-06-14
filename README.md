@@ -3,7 +3,7 @@
 ### The challenge
 In the first of the group projects we were tasked with building a website from the ground up, utilizing 2 APIs and a css library other than Bootstrap. 
 ### User Story
-As a user, I want to be able to search for breweries in a city if I want to go out, or be able to search for cocktail recipes to make at home. We also make the search list can be saved into local storage or deleted from 'clear' button. 
+As a user, I want to be able to search for breweries in a city if I want to go out, or be able to search for cocktail recipes to make at home. We also made a search list that is saved into local storage and can be deleted with a 'clear' button. 
 
 ### Acceptance Criteria
 Application uses at least two server-side APIs.
