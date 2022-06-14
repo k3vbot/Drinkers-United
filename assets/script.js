@@ -13,6 +13,7 @@ let cocktail = "";
 let searchBrew = $("#Search-Brewery");
 let randomBrew = $("#Random-Brewery");
 
+// Functions make enter keys work with search data input
 searchPlace.keypress(function (event) {
     if (event.which === 13) {
         searchBrew.click()
@@ -29,6 +30,8 @@ cocktailSearchTermInput.keypress(function (event) {
 
 
 console.log(searchPlace);
+
+// All the search functions here
 
 function searchBrewery() {
     $(".none").empty()
@@ -231,7 +234,8 @@ function searchCocktail() {
                 <br>
                     <div class="card">
                     <div class="card-image">
-                        <figure class="image is-4by3">
+                        <figure class="image 
+                        ">
                         <img src="${drinkImageUrl}" alt="Placeholder image">
                         </figure>
                     </div>
@@ -387,13 +391,7 @@ function searchRandomCocktail() {
     }
 }
 
-function handleAddToFavorites() {
-    console.log('ADD ME TO FAVORITE')
-}
-
-// Declare variables for button save and clear user data
-const favoriteCocktail = $("#favorite-cocktail")
-const favoriteBrewery = $("#favorite-brewery")
+// Declare variables for button clear user data
 const clearBreweryBtn = $("#clear-brewery")
 const clearCocktailBtn = $("#clear-cocktail")
 
@@ -401,9 +399,7 @@ const clearCocktailBtn = $("#clear-cocktail")
 const breweries = JSON.parse(localStorage.getItem("searchBrewery")) || [];
 const cocktails = JSON.parse(localStorage.getItem("search")) || [];
 
-
-
-// functions to clear user storage if searchPlace is empty
+// functions to clear user storage 
 function clearBrew() {
     $(".none").empty()
     localStorage.clear();
