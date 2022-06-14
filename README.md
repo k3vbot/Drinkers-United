@@ -23,19 +23,38 @@ As a user, I want to be able to search for breweries in a city if I want to go o
 ### Acceptance Criteria
 Application uses at least two server-side APIs.
 
+We use API for cocktail:
+https://www.thecocktaildb.com/api/json/v1
+
+API for brewery:
+https://api.openbrewerydb.org/breweries
+
 Application uses client-side storage to store persistent data.
+
+We added the local storage for every search
+
+<img width="983" alt="image" src="https://user-images.githubusercontent.com/49047156/173473818-5fad049a-fd10-4cdd-a72d-ad02a5d596e5.png">
+
 
 Application doesn't use JS alerts, prompts, or confirms (uses modals instead).
 
-Application uses a CSS framework other than Bootstrap.
+We only use Modal 
+<img width="1285" alt="image" src="https://user-images.githubusercontent.com/49047156/173473877-b66dad93-817f-4869-9f18-0a7ed71e7e86.png">
+
+
+Application is used under Bulma
 
 Application is interactive (accepts and responds to user input).
 ### Screenshot
+<img width="1306" alt="image" src="https://user-images.githubusercontent.com/49047156/173473956-a0b56fd2-65fb-483f-84f5-f064630a38bb.png">
+
+<img width="1298" alt="image" src="https://user-images.githubusercontent.com/49047156/173473988-6f33cf67-cf5f-482e-a777-fa52f1961f35.png">
+
+<img width="1262" alt="image" src="https://user-images.githubusercontent.com/49047156/173474017-566e4f65-1568-4596-995d-3c115332b8a3.png">
 
 
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+
 ## My process
 ### Built with
 - Semantic HTML5 markup
@@ -59,10 +78,12 @@ Use this section to outline areas that you want to continue focusing on in futur
 ### Useful resources
 - [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
 - [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+
 ## Author
-- Website - [Add your name here](https://www.your-site.com)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-## Acknowledgments
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+Andrew White
+Dongyu Guo
+Kevin Muehlbauer
+Khanh Tran
+Logan Slusher
+
+
