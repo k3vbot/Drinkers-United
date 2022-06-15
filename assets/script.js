@@ -28,7 +28,6 @@ cocktailSearchTermInput.keypress(function (event) {
     }
 });
 
-
 console.log(searchPlace);
 
 // All the search functions here
@@ -83,32 +82,6 @@ function searchBrewery() {
                     localStorage.setItem("brewlist", JSON.stringify(allBrewList))
 
                 }
-
-
-                if (response.length) {
-                    for (let i = 0; i < 5; i++) {
-                        let name = response[i].name;
-                        let street = response[i].street;
-                        let city = response[i].city;
-                        let state = response[i].state;
-                        let postal_code = response[i].postal_code;
-                        let country = response[i].country;
-
-                        let website_url = response[i].website_url;
-
-
-                    }
-
-                    allBrewList[i] = brewList;
-                    console.log(allBrewList);
-
-                    localStorage.setItem("brewList", JSON.stringify(allBrewList))
-
-                }
-
-
-
-
             }
             else { $("#brewery-address").append('<ul> Cannot find a brewery there :( </ul>'); }
         });
@@ -142,7 +115,6 @@ function randomBrewery() {
         $("#brewery-address").append('<ul>' + state + '</ul>');
         $("#brewery-address").append('<ul>' + postal_code + '</ul>');
         $("#brewery-address").append('<ul>' + country + '</ul><br />');
-
 
         const randomBrewList = {
             brewName: name,
